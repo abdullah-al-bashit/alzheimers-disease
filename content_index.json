@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "Abdullah | Academic Portfolio",
+    "description": "Abdullah - Postdoctoral Research Associate at Northeastern University"
+  },
+
+  "bio": [
+    "I specialize in statistical signal processing methods for structural characterization of pathological inclusions in Alzheimer's disease research. My primary focus areas include machine learning, inverse problems, multimodal imaging, and structural biology. I'm passionate about leveraging these techniques to advance our understanding of neurodegenerative diseases.",
+    "I received my Ph.D. in Electrical & Computer Engineering from Northeastern University in December 2024. My research spans statistical signal processing, machine learning, inverse problems, multimodal imaging, and structural biology. I'm currently a Postdoctoral Research Associate at the Makowski Laboratory at Northeastern University.",
+    "Along my academic journey, I've been fortunate to contribute to multiple publications and collaborate with leading researchers in the field. Beyond my professional pursuits, I enjoy exploring new methodologies and developing innovative computational tools for biomedical research."
+  ],
+
+  "affiliations": [
+    {
+      "institution": "Northeastern University",
+      "role": "Postdoctoral Research Associate",
+      "department": ["Department of Bioengineering","Boston, Massachusetts, USA"],
+      "logo_icon": "assets/img/neu_logo.png"
+    }
+  ],
+
+  "experience": [
+    {
+      "institution": "Northeastern University",
+      "position": "Ph.D. in Electrical & Computer Engineering",
+      "dates": "August 2019 – December 2024",
+      "department": "Department of Electrical & Computer Engineering",
+      "logo_icon": "fa-graduation-cap",
+      "logo_image": "fa-university"
+    },
+    {
+      "institution": "Previous Institution",
+      "position": "Position Title",
+      "dates": "Start Date – End Date",
+      "department": "Department Name",
+      "logo_icon": "fa-university",
+      "logo_image": null
+    }
+  ],
+
+  "news": [
+  {
+    "date": "Nov 26, 2025",
+    "content": "Ancillary Co-PI on COPDGene Project in collaboration with Mathew Moll (BWH) and Surya Bhatt (UAB)."
+  },
+  {
+    "date": "Nov 19, 2025",
+    "content": "Submitted Paper to IEEE Transactions on Signal Processing."
+  },
+  {
+    "date": "Nov 6-7, 2025",
+    "content": "Attended Broad Institute Machine Learning in Drug Discovery symposium at Cambridge, MA."
+  },
+  {
+    "date": "Sep 8, 2025",
+    "content": "Invited talk at BWH Systems Pharmacology Working Groups (Virtual)."
+  },
+  {
+    "date": "Jul 23, 2025",
+    "content": "Attended CDNM Systems Pharmacology Symposium at BWH, Boston, MA."
+  },
+  {
+    "date": "Dec 2, 2024",
+    "content": "Ph.D. Thesis defended!"
+  },
+  {
+    "date": "Sep 13 2024",
+    "content": "Paper accepted at Journal of Applied Crystallography."
+  },
+  {
+    "date": "Jul 8, 2024",
+    "content": "Oral presentation at the 74th ACA Annual Meeting in Denver, Colorado."
+  },
+  {
+    "date": "Feb 12, 2024",
+    "content": "Oral presentation at the 68th Biophysical Society Annual Meeting in Philadelphia, PA."
+  },
+  {
+    "date": "Jul 8, 2023",
+    "content": "Oral presentation and awarded Etter Student Award at the 73rd ACA Annual Meeting in Baltimore, Maryland."
+  },
+  {
+    "date": "Oct 11 2022",
+    "content": "Paper accepted at Journal of Applied Crystallography."
+  },
+  {
+    "date": "Sep 5 2022",
+    "content": "Paper accepted at Robotics."
+  },
+  {
+    "date": "May 5 2022",
+    "content": "Paper accepted at Frontiers in Neuroscience."
+  },
+  {
+    "date": "Feb 21, 2022",
+    "content": "Oral presentation at the 66th Biophysical Society Annual Meeting in San Francisco, CA."
+  },
+  {
+    "date": "Aug 5, 2021",
+    "content": "Oral presentation and awarded Etter Student Award at the 71st ACA Annual Meeting (Virtual)."
+  },
+  {
+    "date": "Sep 9 2021",
+    "content": "Paper accepted at Applied Sciences."
+  }
+  ]
+}

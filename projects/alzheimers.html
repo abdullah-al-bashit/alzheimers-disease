@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Figure - Alzheimer's Disease</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        
+        .figure-container {
+            width: 900px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .figure-header {
+            background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
+            padding: 24px 32px;
+            color: white;
+        }
+        
+        .figure-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+        .figure-subtitle { font-size: 13px; opacity: 0.85; font-weight: 400; }
+        
+        .figure-content { padding: 32px; }
+        
+        .cohort-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: #f5f3ff;
+            border: 1px solid #c4b5fd;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #5b21b6;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .main-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr 220px;
+            gap: 24px;
+            align-items: start;
+        }
+        
+        /* Input boxes */
+        .input-col { display: flex; flex-direction: column; gap: 12px; }
+        
+        .input-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 12px 14px 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .input-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            border-radius: 16px 0 0 16px;
+        }
+        
+        .input-box.input-tissue::before { background: #f59e0b; }
+        .input-box.input-stages::before { background: #ef4444; }
+        .input-box.input-regions::before { background: #14b8a6; }
+        .input-box.input-xray::before { background: #3b82f6; }
+        
+        .input-box:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 2px 8px rgba(139,92,246,0.15);
+        }
+        
+        .input-icon { font-size: 28px; flex-shrink: 0; }
+        .input-text { display: flex; flex-direction: column; gap: 2px; }
+        .input-title { font-size: 13px; font-weight: 600; color: #1e293b; }
+        .input-meta { font-size: 10px; color: #64748b; }
+        
+        /* Analysis */
+        .analysis-col { position: relative; }
+        
+        .analysis-box {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            border: 2px solid #c4b5fd;
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .analysis-header { text-align: center; margin-bottom: 20px; }
+        .analysis-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #5b21b6;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .analysis-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+        
+        .method-box {
+            background: white;
+            border-radius: 8px;
+            padding: 14px 12px;
+            text-align: center;
+            border: 1px solid #ddd6fe;
+        }
+        
+        .method-icon { font-size: 22px; margin-bottom: 6px; }
+        .method-name { font-size: 11px; font-weight: 600; color: #1e293b; }
+        .method-desc { font-size: 9px; color: #64748b; margin-top: 3px; }
+        
+        .fusion-box {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+            margin-top: 8px;
+        }
+        
+        .fusion-title { font-size: 13px; font-weight: 600; color: white; }
+        .fusion-sub { font-size: 10px; color: #94a3b8; margin-top: 2px; }
+        
+        /* Arrows */
+        .arrow-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 24px;
+        }
+        .arrow-left { left: -20px; }
+        .arrow-r { right: -20px; }
+        
+        /* Outcomes */
+        .outcome-col { display: flex; flex-direction: column; gap: 10px; }
+        
+        .outcome-header {
+            font-size: 11px;
+            font-weight: 700;
+            color: #059669;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        
+        .outcome-box {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: 12px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .outcome-icon { font-size: 18px; }
+        .outcome-text { font-size: 11px; font-weight: 500; color: #065f46; }
+        
+        /* Bottom section */
+        .bottom-section {
+            margin-top: 20px;
+        }
+        
+        /* Challenge/Solution Section */
+        .challenge-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .challenge-box, .solution-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+        }
+        
+        .challenge-box {
+            border-left: 4px solid #ef4444;
+        }
+        
+        .solution-box {
+            border-left: 4px solid #10b981;
+        }
+        
+        .challenge-header, .solution-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .challenge-icon, .solution-icon {
+            font-size: 16px;
+        }
+        
+        .challenge-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #dc2626;
+        }
+        
+        .solution-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #059669;
+        }
+        
+        .challenge-content, .solution-content {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.5;
+        }
+        
+        .challenge-list, .solution-list {
+            list-style: none;
+            margin-top: 8px;
+        }
+        
+        .challenge-list li, .solution-list li {
+            padding: 3px 0 3px 16px;
+            position: relative;
+            font-size: 11px;
+        }
+        
+        .challenge-list li::before, .solution-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #94a3b8;
+        }
+        
+        .question-box {
+            background: #faf5ff;
+            border: 2px solid #d8b4fe;
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+        }
+        
+        .question-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: #7c3aed;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        
+        .question-text { font-size: 13px; font-weight: 500; color: #581c87; }
+        
+        .collaborators {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .collab-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #f1f5f9;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+    <div class="figure-container">
+        <div class="figure-header">
+            <div class="figure-title">Structural Characterization of Pathological Inclusions in Alzheimer's Disease</div>
+            <div class="figure-subtitle">Synchrotron X-ray Microdiffraction for Mapping Aggregate Structure Across Disease Stages</div>
+        </div>
+        
+        <div class="figure-content">
+            <div class="cohort-badge">
+                <span>🧠</span>
+                NIH/NIA RF1 Funded • Post-mortem AD Brain Tissue • Multi-stage Progression
+            </div>
+            
+            <div class="main-layout">
+                <!-- Input data -->
+                <div class="input-col">
+                    <div class="input-box input-tissue">
+                        <div class="input-icon">🧠</div>
+                        <div class="input-text">
+                            <div class="input-title">Brain Tissue</div>
+                            <div class="input-meta">Post-mortem AD samples</div>
+                        </div>
+                    </div>
+                    <div class="input-box input-stages">
+                        <div class="input-icon">📊</div>
+                        <div class="input-text">
+                            <div class="input-title">Disease Stages</div>
+                            <div class="input-meta">Early → Transition → Late</div>
+                        </div>
+                    </div>
+                    <div class="input-box input-regions">
+                        <div class="input-icon">🗺️</div>
+                        <div class="input-text">
+                            <div class="input-title">Brain Regions</div>
+                            <div class="input-meta">Hippocampus, cortex, entorhinal</div>
+                        </div>
+                    </div>
+                    <div class="input-box input-xray">
+                        <div class="input-icon"><i class="fas fa-radiation" style="color: #3b82f6;"></i></div>
+                        <div class="input-text">
+                            <div class="input-title">X-ray Microdiffraction</div>
+                            <div class="input-meta">Synchrotron beam at BNL</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analysis -->
+                <div class="analysis-col">
+                    <span class="arrow-right arrow-left">→</span>
+                    <div class="analysis-box">
+                        <div class="analysis-header">
+                            <div class="analysis-title">Signal Processing & ML Pipeline</div>
+                        </div>
+                        <div class="analysis-grid">
+                            <div class="method-box">
+                                <div class="method-icon">📉</div>
+                                <div class="method-name">Background Separation</div>
+                                <div class="method-desc">Statistical tissue modeling</div>
+                            </div>
+                            <div class="method-box">
+                                <div class="method-icon">🤖</div>
+                                <div class="method-name">ML Classification</div>
+                                <div class="method-desc">Neural networks</div>
+                            </div>
+                            <div class="method-box">
+                                <div class="method-icon">📐</div>
+                                <div class="method-name">Structural Mapping</div>
+                                <div class="method-desc">Fibrillar analysis</div>
+                            </div>
+                            <div class="fusion-box">
+                                <div class="fusion-title">Stage-Specific Structural Signatures</div>
+                                <div class="fusion-sub">Quantitative mapping of aggregate organization across disease progression</div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="arrow-right arrow-r">→</span>
+                </div>
+                
+                <!-- Outcomes -->
+                <div class="outcome-col">
+                    <div class="outcome-header">Key Deliverables</div>
+                    <div class="outcome-box">
+                        <div class="outcome-icon">📋</div>
+                        <div class="outcome-text">Stage-specific signatures</div>
+                    </div>
+                    <div class="outcome-box">
+                        <div class="outcome-icon">🔀</div>
+                        <div class="outcome-text">Transition markers</div>
+                    </div>
+                    <div class="outcome-box">
+                        <div class="outcome-icon">🗺️</div>
+                        <div class="outcome-text">Vulnerability maps</div>
+                    </div>
+                    <div class="outcome-box">
+                        <div class="outcome-icon">💻</div>
+                        <div class="outcome-text">Open-source pipelines</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Challenge/Solution Section -->
+            <div class="challenge-section">
+                <div class="challenge-box">
+                    <div class="challenge-header">
+                        <span class="challenge-icon">⚠️</span>
+                        <span class="challenge-title">The Computational Challenge</span>
+                    </div>
+                    <div class="challenge-content">
+                        Pathological signal is extremely weak and tangled with surrounding tissue and measurement noise.
+                        <ul class="challenge-list">
+                            <li>Fibrillar signatures buried in diffuse background</li>
+                            <li>High tissue heterogeneity across samples</li>
+                            <li>Low signal-to-noise ratio</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <div class="solution-header">
+                        <span class="solution-icon">💡</span>
+                        <span class="solution-title">Our Computational Solution</span>
+                    </div>
+                    <div class="solution-content">
+                        Domain-informed signal processing and machine learning to extract subtle pathological signatures.
+                        <ul class="solution-list">
+                            <li>Statistical background separation</li>
+                            <li>Neural network classification</li>
+                            <li>Quantitative structural mapping</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom -->
+            <div class="bottom-section">
+                <div class="question-box">
+                    <div class="question-label">Research Question</div>
+                    <div class="question-text">Which molecular forms of protein aggregates mark the transition from silent accumulation to active neurodegeneration—and can we map their structural evolution across disease stages?</div>
+                </div>
+                
+                <div class="collaborators">
+                    <div class="collab-badge">
+                        <span>🏥</span>
+                        Massachusetts General Hospital
+                    </div>
+                    <div class="collab-badge">
+                        <span>⚛️</span>
+                        Brookhaven National Laboratory
+                    </div>
+                    <div class="collab-badge">
+                        <span>🎓</span>
+                        Northeastern University
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

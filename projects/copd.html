@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Figure - COPD Multi-omics</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        
+        .figure-container {
+            width: 900px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .figure-header {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            padding: 24px 32px;
+            color: white;
+        }
+        
+        .figure-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+        .figure-subtitle { font-size: 13px; opacity: 0.85; font-weight: 400; }
+        
+        .figure-content { padding: 32px; }
+        
+        .cohort-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: #ecfdf5;
+            border: 1px solid #6ee7b7;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #065f46;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .main-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr 220px;
+            gap: 24px;
+            align-items: start;
+        }
+        
+        /* Input boxes - HORIZONTAL layout with pill shape and left color bar */
+        .input-col { display: flex; flex-direction: column; gap: 12px; }
+        
+        .input-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 12px 14px 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .input-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            border-radius: 16px 0 0 16px;
+        }
+        
+        .input-box.input-ct::before { background: #f59e0b; }
+        .input-box.input-rna::before { background: #3b82f6; }
+        .input-box.input-prot::before { background: #8b5cf6; }
+        .input-box.input-clin::before { background: #ef4444; }
+        
+        .input-box:hover {
+            border-color: #10b981;
+            box-shadow: 0 2px 8px rgba(16,185,129,0.15);
+        }
+        
+        .input-icon { font-size: 28px; flex-shrink: 0; }
+        .input-text { display: flex; flex-direction: column; gap: 2px; }
+        .input-title { font-size: 13px; font-weight: 600; color: #1e293b; }
+        .input-meta { font-size: 10px; color: #64748b; }
+        
+        /* Analysis */
+        .analysis-col { position: relative; }
+        
+        .analysis-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #86efac;
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .analysis-header { text-align: center; margin-bottom: 20px; }
+        .analysis-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #166534;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        
+        .method-box {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #d1fae5;
+        }
+        
+        .method-icon { font-size: 20px; margin-bottom: 4px; }
+        .method-name { font-size: 11px; font-weight: 600; color: #1e293b; }
+        .method-desc { font-size: 9px; color: #64748b; margin-top: 2px; }
+        
+        .fusion-box {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+            margin-top: 8px;
+        }
+        
+        .fusion-title { font-size: 13px; font-weight: 600; color: white; }
+        .fusion-sub { font-size: 10px; color: #94a3b8; margin-top: 2px; }
+        
+        /* Arrows */
+        .arrow-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 24px;
+        }
+        .arrow-left { left: -20px; }
+        .arrow-r { right: -20px; }
+        
+        /* Outcomes - wider boxes */
+        .outcome-col { display: flex; flex-direction: column; gap: 10px; }
+        
+        .outcome-header {
+            font-size: 11px;
+            font-weight: 700;
+            color: #dc2626;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        
+        .outcome-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .outcome-icon { font-size: 18px; }
+        .outcome-text { font-size: 11px; font-weight: 500; color: #991b1b; white-space: nowrap; }
+        
+        /* Bottom section */
+        .bottom-section {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .question-box {
+            background: #fffbeb;
+            border: 2px solid #fcd34d;
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+        }
+        
+        .question-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: #b45309;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        
+        .question-text { font-size: 13px; font-weight: 500; color: #78350f; }
+        
+        .collaborators {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .collab-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #f1f5f9;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+    <div class="figure-container">
+        <div class="figure-header">
+            <div class="figure-title">Risk Stratification in Chronic Obstructive Pulmonary Disease</div>
+            <div class="figure-subtitle">Multi-omics Integration Linking Imaging Phenotypes to Molecular Signatures</div>
+        </div>
+        
+        <div class="figure-content">
+            <div class="cohort-badge">
+                <span>📊</span>
+                COPDGene Ancillary Study • n ≈ 3,000 participants • 10-year follow-up
+            </div>
+            
+            <div class="main-layout">
+                <!-- Input data -->
+                <div class="input-col">
+                    
+                    <div class="input-box input-ct">
+                        <div class="input-icon">🫁</div>
+                        <div class="input-text">
+                            <div class="input-title">CT Imaging</div>
+                            <div class="input-meta">Voxel-level MAL maps</div>
+                        </div>
+                    </div>
+                    <div class="input-box input-rna">
+                        <div class="input-icon">🧬</div>
+                        <div class="input-text">
+                            <div class="input-title">Transcriptomics</div>
+                            <div class="input-meta">Blood RNA-seq (60K genes)</div>
+                        </div>
+                    </div>
+                    <div class="input-box input-prot">
+                        <div class="input-icon">🔬</div>
+                        <div class="input-text">
+                            <div class="input-title">Proteomics</div>
+                            <div class="input-meta">SomaScan (5K proteins)</div>
+                        </div>
+                    </div>
+                    <div class="input-box input-clin">
+                        <div class="input-icon">📋</div>
+                        <div class="input-text">
+                            <div class="input-title">Clinical Data</div>
+                            <div class="input-meta">Spirometry, exacerbations</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analysis -->
+                <div class="analysis-col">
+                    <span class="arrow-right arrow-left">→</span>
+                    <div class="analysis-box">
+                        <div class="analysis-header">
+                            <div class="analysis-title">Multi-omics Analysis Pipeline</div>
+                        </div>
+                        <div class="analysis-grid">
+                            
+                            <div class="method-box">
+                                <div class="method-icon">📈</div>
+                                <div class="method-name">Differential Expression</div>
+                                <div class="method-desc">Empirical Bayes</div>
+                            </div>
+                            <div class="method-box">
+                                <div class="method-icon">🛤️</div>
+                                <div class="method-name">Pathway Enrichment</div>
+                                <div class="method-desc">GSEA</div>
+                            </div>
+                            <div class="method-box">
+                                <div class="method-icon">🕸️</div>
+                                <div class="method-name">Co-expression Networks</div>
+                                <div class="method-desc">WGCNA</div>
+                            </div>
+                            <div class="method-box">
+                                <div class="method-icon">🔗</div>
+                                <div class="method-name">Data Integration</div>
+                                <div class="method-desc">Multiview CCA</div>
+                            </div>
+                            <div class="fusion-box">
+                                <div class="fusion-title">Multi-omic Risk Score (MultiRS)</div>
+                                <div class="fusion-sub">Elastic net integration of latent factors</div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="arrow-right arrow-r">→</span>
+                </div>
+                
+                <!-- Outcomes -->
+                <div class="outcome-col">
+                    <div class="outcome-header">Clinical Outcomes</div>
+                    
+                    <div class="outcome-box">
+                        <div class="outcome-icon">📉</div>
+                        <div class="outcome-text">FEV₁ decline</div>
+                    </div>
+                    <div class="outcome-box">
+                        <div class="outcome-icon">🫁</div>
+                        <div class="outcome-text">Emphysema progression</div>
+                    </div>
+                    <div class="outcome-box">
+                        <div class="outcome-icon">⚠️</div>
+                        <div class="outcome-text">Exacerbations</div>
+                    </div>
+                    <div class="outcome-box">
+                        <div class="outcome-icon">💔</div>
+                        <div class="outcome-text">All-cause mortality</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom -->
+            <div class="bottom-section">
+                <div class="question-box">
+                    <div class="question-label">Research Question</div>
+                    <div class="question-text">Can voxel-level imaging phenotypes combined with blood-based multi-omics identify which patients will progress and which lung regions are at risk?</div>
+                </div>
+                
+                <div class="collaborators">
+                    
+                    <div class="collab-badge">
+                        <span>🏥</span>
+                        Brigham and Women's Hospital
+                    </div>
+                    <div class="collab-badge">
+                        <span>🎓</span>
+                        Northeastern University
+                    </div>
+                    <div class="collab-badge">
+                        <span>💰</span>
+                        NHLBI U01 Funded
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

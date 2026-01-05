@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Teaching | Abdullah",
+    "description": "Teaching experience and mentorship by Abdullah Al Bashit"
+  },
+
+  "philosophy": "I believe in fostering an interactive learning environment where students are encouraged to explore concepts through hands-on problem-solving and real-world applications. My teaching approach emphasizes building strong foundational understanding while connecting theory to practical applications in signal processing, electronics, and power systems.",
+
+  "courses": [
+    {
+      "role": "Teaching Assistant",
+      "institution": "Northeastern University",
+      "location": "Boston, MA",
+      "period": "Sep 2020 – Dec 2020",
+      "description": "Led recitation lectures and designed/conducted laboratory experiments for a class of approximately 40 undergraduate students.",
+      "courses_list": [
+        {"code": "EECE 2323", "name": "Fundamentals of Digital Design and Computer Organization", "semesters": ["Fall 2020"]}
+      ]
+    },
+    {
+      "role": "Graduate Instructional Assistant",
+      "institution": "Texas State University",
+      "location": "San Marcos, TX",
+      "period": "Aug 2017 – Dec 2017",
+      "description": "Supervised cleanroom laboratories on full CMOS-compatible semiconductor device fabrication (wafer preparation through final test) for a class of approximately 10 undergraduate students.",
+      "courses_list": [
+        {"code": "MFGE 4392/4394", "name": "Microelectronics Manufacturing I/II", "semesters": ["Fall 2017"]}
+      ]
+    },
+    {
+      "role": "Lecturer",
+      "institution": "Prime University",
+      "location": "Dhaka, Bangladesh",
+      "period": "Feb 2012 – Mar 2014",
+      "description": "Delivered classroom lectures, designed and graded exams, supervised labs, and held office hours for classes of approximately 20–80 undergraduate students.",
+      "courses_list": [
+        {"code": "EEE 157", "name": "Electrical Circuit II", "semesters": ["Fall 2012"]},
+        {"code": "EEE 210", "name": "Electronic Circuit Simulation Lab", "semesters": ["Spring 2012"]},
+        {"code": "EEE 235", "name": "Energy Conversion I", "semesters": ["Summer 2012"]},
+        {"code": "EEE 325", "name": "Energy Conversion II", "semesters": ["Summer 2012", "Spring 2013"]},
+        {"code": "EEE 326", "name": "Energy Conversion II Lab", "semesters": ["Spring 2013"]},
+        {"code": "EEE 407", "name": "Microprocessor Systems and Interfacing", "semesters": ["Spring 2012"]},
+        {"code": "EEE 425", "name": "Power System I", "semesters": ["Summer 2012", "Spring 2013"]},
+        {"code": "EEE 431", "name": "Power System II", "semesters": ["Fall 2012"]},
+        {"code": "EEE 473", "name": "Power System Protection", "semesters": ["Fall 2012"]}
+      ]
+    }
+  ],
+
+  "mentoring": [
+    {
+      "type": "Graduate Students",
+      "students": [
+        {
+          "name": "Durga Gomathi Arumuganainar",
+          "program": "MS Department of Bioinformatics",
+          "period": "2025",
+          "institution": "NEU, 2026"
+        },
+        {
+          "name": "Wendao Li",
+          "program": "BS+MS Department of Bioengineering",
+          "period": "2024",
+          "institution": "NEU, 2026"
+        },
+        {
+          "name": "Fairuz Samiha Saeed",
+          "program": "MS Department of Electrical Engineering",
+          "period": "2020–2021",
+          "institution": "TXSTATE, 2021"
+        }
+      ]
+    },
+    {
+      "type": "Undergraduate Students",
+      "students": [
+        {
+          "name": "Devyn Stringfellow",
+          "program": "BS in Behavioral Neuroscience and Bioengineering",
+          "period": "2023",
+          "institution": "NEU, 2026"
+        }
+      ]
+    }
+  ]
+}

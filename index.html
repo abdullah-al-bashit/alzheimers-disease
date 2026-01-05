@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abdullah - Postdoctoral Research Associate at Northeastern University">
+  <title>Abdullah | Academic Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+  <style>
+
+    /* ============================================
+       CSS VARIABLES
+       ============================================ */
+    :root {
+      --primary-color: #494e52;
+      --link-color: #494e52;
+      --link-hover: #000000;
+      --text-color: #494e52;
+      --text-muted: #494e52;
+      --bg-color: #ffffff;
+      --bg-sidebar: #ffffff;
+      --border-color: #e0e0e0;
+      --shadow: 0 1px 1px rgba(0,0,0,0.125);
+      --sidebar-width: 260px;
+      --nav-height: 50px;
+      --accent-color: #800020;
+      --accent-hover: #0F766E;
+      --action-link-color: #0066cc;
+      --action-link-hover: #004499;
+    }
+
+    /* ============================================
+       BASE STYLES
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+    a { color: var(--link-color); text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    /* ============================================
+       NAVIGATION BAR
+       ============================================ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: 1400px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-color);
+      letter-spacing: -0.5px;
+    }
+    .nav-brand:hover { text-decoration: none; color: var(--link-color); }
+
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { 
+      color: var(--text-muted); 
+      font-size: 0.85rem; 
+      font-weight: 400; 
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-color); text-decoration: none; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--text-muted);
+      padding: 0.4rem;
+      border-radius: 50%;
+    }
+    .theme-toggle:hover { color: var(--text-color); }
+
+    /* ============================================
+       PAGE LAYOUT
+       ============================================ */
+    .page-wrapper {
+      display: flex;
+      margin-top: var(--nav-height);
+      min-height: calc(100vh - var(--nav-height));
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================
+       LEFT SIDEBAR
+       ============================================ */
+    .sidebar {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      background: var(--bg-color);
+      border-right: 1px solid var(--border-color);
+    }
+
+    .sidebar-content {
+      position: sticky;
+      top: calc(var(--nav-height) + 1rem);
+      padding: 1.5rem 1rem;
+    }
+
+    .author__avatar {
+      display: block;
+      width: 180px;
+      height: 180px;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .author__avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border-color);
+      padding: 3px;
+      background: var(--bg-color);
+    }
+
+    .author__content {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    .author__name {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 0.25rem;
+    }
+
+    .author__bio {
+      font-size: 0.85rem;
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+
+    .author__bio .bio-line {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    .author__urls-wrapper { margin-top: 1rem; }
+
+    .author__urls {
+      list-style: none;
+      font-size: 0.8rem;
+    }
+
+    .author__urls li {
+      white-space: nowrap;
+      padding: 0.2rem 0;
+      color: var(--text-muted);
+    }
+
+    .author__urls li i {
+      width: 1.25em;
+      text-align: center;
+      margin-right: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .author__urls a { color: var(--text-color); }
+    .author__urls a:hover { color: var(--link-color); text-decoration: underline; }
+    .author__urls a i { color: var(--text-muted); }
+
+    /* ============================================
+       MAIN CONTENT AREA
+       ============================================ */
+    .main-content {
+      flex: 1;
+      padding: 2rem 3rem 2rem 2.5rem;
+    }
+
+    /* Section headings */
+    .main-content h2 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Section container */
+    .section { margin-bottom: 2rem; }
+
+    /* Default paragraph styling for sections */
+    .section > p {
+      color: var(--text-color);
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    footer {
+      padding: 1.25rem 1.5rem;
+      background: var(--bg-color);
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .footer-text { color: var(--text-muted); font-size: 0.8rem; }
+    .footer-text a { color: var(--text-muted); }
+
+    /* ============================================
+       DARK MODE
+       ============================================ */
+    [data-theme="dark"] {
+      --primary-color: #e2e2e2;
+      --link-color: #e2e2e2;
+      --link-hover: #ffffff;
+      --text-color: #e2e2e2;
+      --text-muted: #e2e2e2;
+      --bg-color: #252a34;
+      --bg-sidebar: #252a34;
+      --border-color: #3a3f4b;
+      --accent-color: #F28B9E;
+      --accent-hover: #5EEAD4;
+      --action-link-color: #60A5FA;
+      --action-link-hover: #93C5FD;
+    }
+
+    /* ============================================
+       RESPONSIVE - TABLET (<=900px)
+       ============================================ */
+    @media (max-width: 900px) {
+      .page-wrapper { flex-direction: column; }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .sidebar-content {
+        position: static;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .author__avatar { width: 100px; height: 100px; }
+
+      .author__urls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+      }
+
+      .main-content { padding: 1.5rem; max-width: 100%; }
+    }
+
+    /* ============================================
+       RESPONSIVE - MOBILE (<=768px)
+       ============================================ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: var(--bg-color);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        gap: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+      .nav-links.active { display: flex; }
+      .nav-toggle { display: block; }
+    }
+
+
+    /* ============================================
+       AFFILIATIONS SECTION
+       ============================================ */
+    .affiliation-item {
+      display: flex;
+      gap: 0.5rem;
+      align-items: stretch;
+      margin-bottom: 0.5rem;
+    }
+
+    .affiliation-logo {
+      width: 100px;
+      min-height: 100px;
+      flex-shrink: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .affiliation-logo i {
+      font-size: 2.5rem;
+      color: var(--text-muted);
+    }
+
+    .affiliation-info {
+    }
+
+    .affiliation-logo i {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    .affiliation-info h3 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .affiliation-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .affiliation-info .role {
+      color: var(--text-color);
+    }
+
+    .affiliation-info .department {
+      color: var(--text-muted);
+    }
+
+    /* ============================================
+       EXPERIENCE SECTION
+       ============================================ */
+    .experience-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .experience-item:last-child { border-bottom: none; }
+
+    .experience-logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 4px;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .experience-logo i {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .experience-content h3 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 0 0 0.15rem 0;
+    }
+
+    .experience-content p {
+      margin: 0;
+    }
+
+    .experience-content .position {
+      color: var(--link-color);
+      font-size: 0.85rem;
+    }
+
+    .experience-content .dates {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+    }
+
+    .experience-content .department {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ============================================
+       NEWS SECTION
+       ============================================ */
+    .news-container {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+    }
+
+    .news-list { 
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .news-item {
+      padding: 0.3rem 0;
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+
+    .news-date {
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    .news-date::after {
+      content: ": ";
+    }
+
+    .news-content { 
+      color: var(--text-color);
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Abdullah Al Bashit</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Bio</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="cv.pdf" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <div class="author__avatar">
+          <img src="assets/img/profile.png" alt="Abdullah Al Bashit">
+        </div>
+        <div class="author__content">
+          <h3 class="author__name">Abdullah Al Bashit</h3>
+          <div class="author__bio"><span class="bio-line">Postdoctoral Research Associate</span><span class="bio-line">Makowski Laboratory</span><span class="bio-line">Department of Bioengineering</span></div>
+        </div>
+        <div class="author__urls-wrapper">
+          <ul class="author__urls">
+            <li><i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> Boston, Massachusetts</li>
+          <li><a href="mailto:a.bashit@northeastern.edu" target="_blank" rel="noopener"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
+          <li><a href="https://scholar.google.com/citations?user=w3KyQbkAAAAJ&hl=en" target="_blank" rel="noopener"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
+          <li><a href="https://github.com/abdullah-al-bashit" target="_blank" rel="noopener"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/abdullah-al-bashit/" target="_blank" rel="noopener"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+          <li><a href="https://orcid.org/0000-0002-7726-8916" target="_blank" rel="noopener"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i> ORCID</a></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="section">
+        <h2>Bio</h2>
+        <p>I specialize in statistical signal processing methods for structural characterization of pathological inclusions in Alzheimer's disease research. My primary focus areas include machine learning, inverse problems, multimodal imaging, and structural biology. I'm passionate about leveraging these techniques to advance our understanding of neurodegenerative diseases.</p>
+        <p>I received my Ph.D. in Electrical & Computer Engineering from Northeastern University in December 2024. My research spans statistical signal processing, machine learning, inverse problems, multimodal imaging, and structural biology. I'm currently a Postdoctoral Research Associate at the Makowski Laboratory at Northeastern University.</p>
+        <p>Along my academic journey, I've been fortunate to contribute to multiple publications and collaborate with leading researchers in the field. Beyond my professional pursuits, I enjoy exploring new methodologies and developing innovative computational tools for biomedical research.</p>
+      </section>
+
+      <section class="section">
+        <h2>Current Affiliations</h2>
+        <div class="affiliation-item">
+          <div class="affiliation-logo" style="background-image: url('assets/img/neu_logo.png');"></div>
+          <div class="affiliation-info">
+            <h3>Northeastern University</h3>
+            <p class="role">Postdoctoral Research Associate</p>
+            <p class="department">Department of Bioengineering<br>Boston, Massachusetts, USA</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>News</h2>
+        <div class="news-container">
+          <ul class="news-list">
+            <li class="news-item">
+          <span class="news-date">Nov 26, 2025</span><span class="news-content">Ancillary Co-PI on COPDGene Project in collaboration with Mathew Moll (BWH) and Surya Bhatt (UAB).</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Nov 19, 2025</span><span class="news-content">Submitted Paper to IEEE Transactions on Signal Processing.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Nov 6-7, 2025</span><span class="news-content">Attended Broad Institute Machine Learning in Drug Discovery symposium at Cambridge, MA.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Sep 8, 2025</span><span class="news-content">Invited talk at BWH Systems Pharmacology Working Groups (Virtual).</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Jul 23, 2025</span><span class="news-content">Attended CDNM Systems Pharmacology Symposium at BWH, Boston, MA.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Dec 2, 2024</span><span class="news-content">Ph.D. Thesis defended!</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Sep 13 2024</span><span class="news-content">Paper accepted at Journal of Applied Crystallography.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Jul 8, 2024</span><span class="news-content">Oral presentation at the 74th ACA Annual Meeting in Denver, Colorado.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Feb 12, 2024</span><span class="news-content">Oral presentation at the 68th Biophysical Society Annual Meeting in Philadelphia, PA.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Jul 8, 2023</span><span class="news-content">Oral presentation and awarded Etter Student Award at the 73rd ACA Annual Meeting in Baltimore, Maryland.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Oct 11 2022</span><span class="news-content">Paper accepted at Journal of Applied Crystallography.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Sep 5 2022</span><span class="news-content">Paper accepted at Robotics.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">May 5 2022</span><span class="news-content">Paper accepted at Frontiers in Neuroscience.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Feb 21, 2022</span><span class="news-content">Oral presentation at the 66th Biophysical Society Annual Meeting in San Francisco, CA.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Aug 5, 2021</span><span class="news-content">Oral presentation and awarded Etter Student Award at the 71st ACA Annual Meeting (Virtual).</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Sep 9 2021</span><span class="news-content">Paper accepted at Applied Sciences.</span>
+        </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p class="footer-text">
+      © 2026 Abdullah Al Bashit.
+    </p>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+</script>
+</body>
+</html>
