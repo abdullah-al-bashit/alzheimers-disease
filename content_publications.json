@@ -20,9 +20,9 @@
       "year": "2026",
       "papers": [
         {
-          "title": "Study of Protein Deposition in Alzheimer's Disease using Correlated Scanning X-ray Microdiffraction and Silver Staining",
-          "authors": "P. Nepal, A. A. Bashit, T. Connors, D. H. Oakley, B. T. Hyman, and L. Makowski",
-          "venue": "in preparation, Feb. 2026",
+          "title": "Multi-modal tracking of Protein deposition and clearance in the progression of Alzheimer's disease",
+          "authors": "P. Nepal, A. A. Bashit, T. Connors, D. H. Oakley, T. J. Zwang, B. T. Hyman, and L. Makowski",
+          "venue": "in preparation, May 2026",
           "image": "assets/pubs/correlated_scanning_2025.jpg",
           "links": []
         }
@@ -151,7 +151,6 @@
           "authors": "A. A. Bashit, P. Nepal, and L. Makowski",
           "venue": "American Crystallographic Association (ACA) 74th Annual Meeting, Denver, Colorado, USA, Jul. 2024",
           "type": "Oral Presentation",
-          "image": "assets/pubs/pub_placeholder.png",
           "links": [
             {"label": "abstract", "url": "https://pubs.aip.org/aca/sdy/article/12/2_Supplement/A161/3343517/Integrating-Semi-Supervised-Learning-and-Transformer"}
           ]
@@ -161,7 +160,6 @@
           "authors": "A. A. Bashit, P. Nepal, and L. Makowski",
           "venue": "Biophysical Society (BPS) 68th Annual Meeting, Philadelphia, Pennsylvania, USA, Feb. 2024",
           "type": "Oral Presentation",
-          "image": "assets/pubs/pub_placeholder.png",
           "links": [
             {"label": "abstract", "url": "https://www.cell.com/biophysj/fulltext/S0006-3495(23)01825-8"}
           ]
@@ -171,7 +169,6 @@
           "authors": "A. A. Bashit, P. Nepal, and L. Makowski",
           "venue": "American Crystallographic Association (ACA) 73rd Annual Meeting, Baltimore, Maryland, USA, Jul. 2023",
           "type": "Oral Presentation",
-          "image": "assets/pubs/pub_placeholder.png",
           "links": [
             {"label": "abstract", "url": "https://journals.iucr.org/a/issues/2023/a1/00/a62044/a62044.pdf"}
           ]
@@ -181,7 +178,6 @@
           "authors": "A. A. Bashit, P. Nepal, and L. Makowski",
           "venue": "Biophysical Society (BPS) 66th Annual Meeting, San Francisco, California, USA, Feb. 2022",
           "type": "Oral Presentation",
-          "image": "assets/pubs/pub_placeholder.png",
           "links": [
             {"label": "abstract", "url": "https://www.cell.com/biophysj/fulltext/S0006-3495(21)02955-6"}
           ]
@@ -191,7 +187,6 @@
           "authors": "A. A. Bashit, P. Nepal, and L. Makowski",
           "venue": "American Crystallographic Association (ACA) 71st Annual Meeting, Virtual, Aug. 2021",
           "type": "Oral Presentation",
-          "image": "assets/pubs/pub_placeholder.png",
           "links": [
             {"label": "abstract", "url": "https://journals.iucr.org/a/issues/2021/a1/00/a59365/a59365.pdf"}
           ]

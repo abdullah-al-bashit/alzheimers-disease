@@ -29,7 +29,7 @@
       --shadow: 0 1px 1px rgba(0,0,0,0.125);
       --sidebar-width: 260px;
       --nav-height: 50px;
-      --accent-color: #800020;
+      --accent-color: #0D9488;
       --accent-hover: #0F766E;
       --action-link-color: #0066cc;
       --action-link-hover: #004499;
@@ -265,7 +265,7 @@
       --bg-color: #252a34;
       --bg-sidebar: #252a34;
       --border-color: #3a3f4b;
-      --accent-color: #F28B9E;
+      --accent-color: #2DD4BF;
       --accent-hover: #5EEAD4;
       --action-link-color: #60A5FA;
       --action-link-hover: #93C5FD;
@@ -381,67 +381,25 @@
     }
 
     /* ============================================
-       EXPERIENCE SECTION
+       DEGREES SECTION
        ============================================ */
-    .experience-item {
-      display: flex;
-      gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .experience-item:last-child { border-bottom: none; }
-
-    .experience-logo {
-      width: 45px;
-      height: 45px;
-      border-radius: 4px;
-      background: transparent;
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .experience-logo i {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-    }
-
-    .experience-content h3 {
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text-color);
-      margin: 0 0 0.15rem 0;
-    }
-
-    .experience-content p {
+    .degrees-list {
+      list-style: disc;
+      padding-left: 1.5rem;
       margin: 0;
     }
 
-    .experience-content .position {
-      color: var(--link-color);
-      font-size: 0.85rem;
-    }
-
-    .experience-content .dates {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      margin-top: 0.15rem;
-    }
-
-    .experience-content .department {
-      color: var(--text-muted);
-      font-size: 0.8rem;
+    .degrees-list li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     /* ============================================
        NEWS SECTION
        ============================================ */
     .news-container {
-      max-height: 200px;
+      max-height: 350px;
       overflow-y: auto;
       border: 1px solid var(--border-color);
       padding: 0.75rem 1rem;
@@ -473,6 +431,41 @@
       color: var(--text-color);
     }
 
+    /* ============================================
+       BIO SECTION LINKS
+       ============================================ */
+    .section p a {
+      color: var(--action-link-color);
+    }
+
+    .section p a:hover {
+      color: var(--action-link-hover);
+      text-decoration: underline;
+    }
+
+    /* ============================================
+       SPONSORS SECTION
+       ============================================ */
+    .sponsors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .sponsor-logo {
+      height: 40px;
+      width: auto;
+      max-width: 280px;
+      object-fit: contain;
+    }
+
+    /* Dark mode: invert logos for visibility */
+    [data-theme="dark"] .sponsor-logo {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
   </style>
 </head>
 <body>
@@ -483,7 +476,7 @@
         <i class="fas fa-bars"></i>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Bio</a></li>
+        <li><a href="index.html" class="active">Biography</a></li>
         <li><a href="research.html">Research</a></li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="teaching.html">Teaching</a></li>
@@ -499,10 +492,10 @@
     <aside class="sidebar">
       <div class="sidebar-content">
         <div class="author__avatar">
-          <img src="assets/img/profile.png" alt="Abdullah Al Bashit">
+          <img src="assets/img/profile.jpg" alt="Abdullah Al Bashit, Ph.D.">
         </div>
         <div class="author__content">
-          <h3 class="author__name">Abdullah Al Bashit</h3>
+          <h3 class="author__name">Abdullah Al Bashit, Ph.D.</h3>
           <div class="author__bio"><span class="bio-line">Postdoctoral Research Associate</span><span class="bio-line">Makowski Laboratory</span><span class="bio-line">Department of Bioengineering</span></div>
         </div>
         <div class="author__urls-wrapper">
@@ -520,10 +513,9 @@
 
     <main class="main-content">
       <section class="section">
-        <h2>Bio</h2>
-        <p>I specialize in statistical signal processing methods for structural characterization of pathological inclusions in Alzheimer's disease research. My primary focus areas include machine learning, inverse problems, multimodal imaging, and structural biology. I'm passionate about leveraging these techniques to advance our understanding of neurodegenerative diseases.</p>
-        <p>I received my Ph.D. in Electrical & Computer Engineering from Northeastern University in December 2024. My research spans statistical signal processing, machine learning, inverse problems, multimodal imaging, and structural biology. I'm currently a Postdoctoral Research Associate at the Makowski Laboratory at Northeastern University.</p>
-        <p>Along my academic journey, I've been fortunate to contribute to multiple publications and collaborate with leading researchers in the field. Beyond my professional pursuits, I enjoy exploring new methodologies and developing innovative computational tools for biomedical research.</p>
+        <h2>Biography</h2>
+        <p>I am a Postdoctoral Research Associate in the Department of Bioengineering at Northeastern University, Boston, MA. I develop statistical signal processing and machine learning methods for structural characterization of pathological inclusions in Alzheimer's disease under <a href="https://coe.northeastern.edu/people/makowski-lee/" target="_blank">Prof. Lee Makowski</a>. I received my Ph.D. in Electrical Engineering from Northeastern in December 2024, also under <a href="https://coe.northeastern.edu/people/makowski-lee/" target="_blank">Prof. Makowski</a>, and my M.Sc. in Engineering from Texas State University in 2019 under <a href="https://damian.wp.txstate.edu/about/" target="_blank">Prof. Damian Valles</a> and <a href="https://www.bio.txst.edu/faculty-staff/michael-forstner.html" target="_blank">Prof. Michael Forstner</a>.</p>
+        <p>I have authored and co-authored peer-reviewed articles in journals including the Journal of Applied Crystallography (IUCr), Frontiers in Neuroscience, Robotics, and Applied Sciences, with conference publications in IEEE ISMCR, IEMCON, and CSCI. I am serving as Ancillary Co-PI on the COPDGene project in collaboration with <a href="https://cdnm.bwh.harvard.edu/matthew-r-moll-md-mph/" target="_blank">Dr. Mathew Moll</a> (Brigham and Women's Hospital) and <a href="https://scholars.uab.edu/631-surya-bhatt" target="_blank">Dr. Surya Bhatt</a> (University of Alabama at Birmingham). I have received the Margaret C. Etter Student Lecturer Award from the American Crystallographic Association (2021, 2023), the Ph.D. Network Travel Grant from Northeastern University (2022–2024), and multiple awards from Texas State University including the Ingram School of Engineering Director's List Award and Graduate College Scholarship.</p>
       </section>
 
       <section class="section">
@@ -539,14 +531,32 @@
       </section>
 
       <section class="section">
+        <h2>Degrees</h2>
+        <ul class="degrees-list">
+          <li><strong>PhD, Electrical Engineering,</strong> Northeastern University, Boston, MA, USA</li>
+            <li><strong>MSc, Engineering (Electrical Engineering),</strong> Texas State University, San Marcos, TX, USA</li>
+            <li><strong>BSc, Electrical & Electronic Engineering,</strong> Rajshahi University of Engineering & Technology (RUET), Bangladesh</li>
+        </ul>
+      </section>
+
+      <section class="section">
         <h2>News</h2>
         <div class="news-container">
           <ul class="news-list">
             <li class="news-item">
+          <span class="news-date">Apr 10, 2026</span><span class="news-content">Led a Technical Skills Series workshop on Applied Machine Learning for Biomedical Data at Northeastern Bioengineering.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Apr 3, 2026</span><span class="news-content">Delivered a guest lecture on machine learning for drug discovery in BIOE 5410: Molecular Bioengineering at Northeastern University.</span>
+        </li>
+        <li class="news-item">
+          <span class="news-date">Mar 27, 2026</span><span class="news-content">Led a Technical Skills Series workshop on Python for Data Analysis & Automation at Northeastern Bioengineering.</span>
+        </li>
+        <li class="news-item">
           <span class="news-date">Nov 26, 2025</span><span class="news-content">Ancillary Co-PI on COPDGene Project in collaboration with Mathew Moll (BWH) and Surya Bhatt (UAB).</span>
         </li>
         <li class="news-item">
-          <span class="news-date">Nov 19, 2025</span><span class="news-content">Submitted Paper to IEEE Transactions on Signal Processing.</span>
+          <span class="news-date">Nov 19, 2025</span><span class="news-content">Submitted Paper to a IEEE Journal.</span>
         </li>
         <li class="news-item">
           <span class="news-date">Nov 6-7, 2025</span><span class="news-content">Attended Broad Institute Machine Learning in Drug Discovery symposium at Cambridge, MA.</span>
@@ -573,6 +583,9 @@
           <span class="news-date">Jul 8, 2023</span><span class="news-content">Oral presentation and awarded Etter Student Award at the 73rd ACA Annual Meeting in Baltimore, Maryland.</span>
         </li>
         <li class="news-item">
+          <span class="news-date">Mar 10, 2023</span><span class="news-content">Invited talk at Brookhaven National Laboratory (BNL).</span>
+        </li>
+        <li class="news-item">
           <span class="news-date">Oct 11 2022</span><span class="news-content">Paper accepted at Journal of Applied Crystallography.</span>
         </li>
         <li class="news-item">
@@ -591,6 +604,18 @@
           <span class="news-date">Sep 9 2021</span><span class="news-content">Paper accepted at Applied Sciences.</span>
         </li>
           </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Affiliations &amp; Sponsors</h2>
+        <div class="sponsors-grid">
+          <img src="assets/sponsors/nih_nia.svg" alt="NIH/NIA" class="sponsor-logo">
+          <img src="assets/sponsors/bwh.svg" alt="Brigham and Women's Hospital" class="sponsor-logo">
+          <img src="assets/sponsors/harvard_medical.svg" alt="Harvard Medical School" class="sponsor-logo">
+          <img src="assets/sponsors/northeastern.svg" alt="Northeastern University" class="sponsor-logo">
+          <img src="assets/sponsors/uab.svg" alt="University of Alabama at Birmingham" class="sponsor-logo">
+          <img src="assets/sponsors/txstate.svg" alt="Texas State University" class="sponsor-logo">
         </div>
       </section>
     </main>

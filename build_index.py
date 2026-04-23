@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Build script for index.html (Bio page).
+Build script for index.html (Biography page).
 Uses sidebar.py for shared components, adds page-specific CSS.
 
 Usage:
@@ -27,7 +27,7 @@ from sidebar import (
 # ============================================
 
 def get_index_css() -> str:
-    """Return CSS specific to the index/bio page."""
+    """Return CSS specific to the index/biography page."""
     return '''
     /* ============================================
        AFFILIATIONS SECTION
@@ -85,67 +85,25 @@ def get_index_css() -> str:
     }
 
     /* ============================================
-       EXPERIENCE SECTION
+       DEGREES SECTION
        ============================================ */
-    .experience-item {
-      display: flex;
-      gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .experience-item:last-child { border-bottom: none; }
-
-    .experience-logo {
-      width: 45px;
-      height: 45px;
-      border-radius: 4px;
-      background: transparent;
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .experience-logo i {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-    }
-
-    .experience-content h3 {
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text-color);
-      margin: 0 0 0.15rem 0;
-    }
-
-    .experience-content p {
+    .degrees-list {
+      list-style: disc;
+      padding-left: 1.5rem;
       margin: 0;
     }
 
-    .experience-content .position {
-      color: var(--link-color);
-      font-size: 0.85rem;
-    }
-
-    .experience-content .dates {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      margin-top: 0.15rem;
-    }
-
-    .experience-content .department {
-      color: var(--text-muted);
-      font-size: 0.8rem;
+    .degrees-list li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     /* ============================================
        NEWS SECTION
        ============================================ */
     .news-container {
-      max-height: 200px;
+      max-height: 350px;
       overflow-y: auto;
       border: 1px solid var(--border-color);
       padding: 0.75rem 1rem;
@@ -176,6 +134,41 @@ def get_index_css() -> str:
     .news-content { 
       color: var(--text-color);
     }
+
+    /* ============================================
+       BIO SECTION LINKS
+       ============================================ */
+    .section p a {
+      color: var(--action-link-color);
+    }
+
+    .section p a:hover {
+      color: var(--action-link-hover);
+      text-decoration: underline;
+    }
+
+    /* ============================================
+       SPONSORS SECTION
+       ============================================ */
+    .sponsors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .sponsor-logo {
+      height: 40px;
+      width: auto;
+      max-width: 280px;
+      object-fit: contain;
+    }
+
+    /* Dark mode: invert logos for visibility */
+    [data-theme="dark"] .sponsor-logo {
+      filter: invert(1) hue-rotate(180deg);
+    }
 '''
 
 
@@ -196,14 +189,6 @@ def load_content(path: Path = Path("content_index.json")) -> dict[str, Any]:
 def generate_bio_paragraphs(bio: list[str]) -> str:
     """Generate bio paragraphs HTML."""
     return "\n        ".join(f"<p>{p}</p>" for p in bio)
-
-
-def generate_logo_html(item: dict[str, Any]) -> str:
-    """Generate logo HTML (icon or image)."""
-    if item.get("logo_image"):
-        return f'<img src="{item["logo_image"]}" alt="{item["institution"]}">'
-    icon = item.get("logo_icon", "fa-university")
-    return f'<i class="fas {icon}"></i>'
 
 
 def generate_affiliations(affiliations: list[dict[str, Any]]) -> str:
@@ -232,24 +217,13 @@ def generate_affiliations(affiliations: list[dict[str, Any]]) -> str:
     return "\n        ".join(items)
 
 
-def generate_experience(experience: list[dict[str, Any]]) -> str:
-    """Generate experience items HTML."""
+def generate_degrees(degrees: list[dict[str, str]]) -> str:
+    """Generate degrees list HTML."""
     items = []
-    for exp in experience:
-        item = f'''<div class="experience-item">
-        <div class="experience-logo">
-          {generate_logo_html(exp)}
-        </div>
-        <div class="experience-content">
-          <h3>{exp["institution"]}</h3>
-          <p class="position">{exp["position"]}</p>
-          <p class="dates">{exp["dates"]}</p>
-          <p class="department">{exp["department"]}</p>
-        </div>
-      </div>'''
+    for d in degrees:
+        item = f'<li><strong>{d["degree"]}, {d["field"]},</strong> {d["institution"]}, {d["location"]}</li>'
         items.append(item)
-    
-    return "\n      ".join(items)
+    return "\n            ".join(items)
 
 
 def generate_news(news: list[dict[str, str]]) -> str:
@@ -264,6 +238,15 @@ def generate_news(news: list[dict[str, str]]) -> str:
     return "\n        ".join(items)
 
 
+def generate_sponsors(sponsors: list[dict[str, str]]) -> str:
+    """Generate sponsors/affiliations logos HTML."""
+    items = []
+    for s in sponsors:
+        item = f'<img src="{s["logo"]}" alt="{s["name"]}" class="sponsor-logo">'
+        items.append(item)
+    return "\n          ".join(items)
+
+
 # ============================================
 # PAGE BUILDER
 # ============================================
@@ -275,8 +258,7 @@ def build_html(content: dict[str, Any], sidebar: dict[str, Any]) -> str:
     head_html = get_base_head_html(
         content["meta"]["title"],
         content["meta"]["description"],
-        get_index_css(),
-        sidebar
+        get_index_css()
     )
     
     html = f'''<!DOCTYPE html>
@@ -303,7 +285,7 @@ def build_html(content: dict[str, Any], sidebar: dict[str, Any]) -> str:
 
     <main class="main-content">
       <section class="section">
-        <h2>Bio</h2>
+        <h2>Biography</h2>
         {generate_bio_paragraphs(content["bio"])}
       </section>
 
@@ -313,11 +295,25 @@ def build_html(content: dict[str, Any], sidebar: dict[str, Any]) -> str:
       </section>
 
       <section class="section">
+        <h2>Degrees</h2>
+        <ul class="degrees-list">
+          {generate_degrees(content.get("degrees", []))}
+        </ul>
+      </section>
+
+      <section class="section">
         <h2>News</h2>
         <div class="news-container">
           <ul class="news-list">
             {generate_news(content["news"])}
           </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Affiliations &amp; Sponsors</h2>
+        <div class="sponsors-grid">
+          {generate_sponsors(content.get("sponsors", []))}
         </div>
       </section>
     </main>

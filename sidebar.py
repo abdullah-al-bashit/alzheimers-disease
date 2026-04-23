@@ -106,7 +106,7 @@ def get_nav_html(active_page: str = "bio", sidebar: dict = None) -> str:
     cv_file = sidebar.get("cv_file", "cv.pdf") if sidebar else "cv.pdf"
     
     pages = [
-        ("bio", "index.html", "Bio", False),
+        ("bio", "index.html", "Biography", False),
         ("research", "research.html", "Research", False),
         ("publications", "publications.html", "Publications", False),
         ("teaching", "teaching.html", "Teaching", False),

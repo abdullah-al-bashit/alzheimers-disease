@@ -402,6 +402,14 @@
       margin-left: 0.25rem;            /* Space before */
     }
 
+    /* Course host (for guest lectures) */
+    .course-host {
+      color: var(--text-muted);        /* Muted color */
+      font-size: 0.85rem;              /* Smaller font */
+      margin-left: 0.25rem;            /* Space before */
+      font-style: italic;              /* Italic */
+    }
+
     /* Role description - second element */
     .role-description {
       font-size: 0.9rem;               /* Smaller font */
@@ -428,6 +436,11 @@
       font-weight: 400;                /* Normal weight */
     }
     
+    /* Role department */
+    .role-department {
+      font-weight: 400;                /* Normal weight */
+    }
+    
     /* Role period */
     .role-period {
       color: var(--text-muted);        /* Muted color */
@@ -436,6 +449,14 @@
     /* Mentoring section */
     .mentoring-section {
       margin-bottom: 2rem;             /* Space below section */
+    }
+    
+    /* Mentoring description */
+    .mentoring-description {
+      font-size: 0.9rem;               /* Smaller font */
+      color: var(--text-color);        /* Text color */
+      line-height: 1.6;                /* Line height */
+      margin-bottom: 1rem;             /* Space below before categories */
     }
 
     /* Mentoring category */
@@ -493,7 +514,7 @@
       
       <!-- Navigation links - teaching is active -->
       <ul class="nav-links">
-        <li><a href="index.html">Bio</a></li>
+        <li><a href="index.html">Biography</a></li>
         <li><a href="research.html">Research</a></li>
         <li><a href="publications.html">Publications</a></li>
         <li><a href="teaching.html" class="active">Teaching</a></li>
@@ -513,10 +534,10 @@
     <aside class="sidebar">
       <div class="sidebar-content">
         <div class="author__avatar">
-          <img src="assets/img/profile.png" alt="Abdullah Al Bashit">
+          <img src="assets/img/profile.jpg" alt="Abdullah Al Bashit, Ph.D.">
         </div>
         <div class="author__content">
-          <h3 class="author__name">Abdullah Al Bashit</h3>
+          <h3 class="author__name">Abdullah Al Bashit, Ph.D.</h3>
           <div class="author__bio"><span class="bio-line">Postdoctoral Research Associate</span><span class="bio-line">Makowski Laboratory</span><span class="bio-line">Department of Bioengineering</span></div>
         </div>
         <div class="author__urls-wrapper">
@@ -540,6 +561,22 @@
         <div class="role-section">
         <ul class="course-list">
           <li class="course-list-item">
+            <span class="course-code">BIOE 5410</span>
+            <span class="course-name">Molecular Bioengineering</span>
+            <span class="course-semesters">(Spring 2026)</span> <span class="course-host">[Host: Lee Makowski]</span>
+          </li>
+        </ul>
+        <p class="role-description">Delivered a guest lecture on Machine Learning for Drug Discovery to 52 graduate students.</p>
+        <div class="role-meta">
+          <span class="role-title">Guest Lecturer</span>, 
+          <span class="role-department">Department of Bioengineering</span>, <span class="role-institution">Northeastern University</span>, 
+          <span class="role-location">Boston, MA</span>
+          <span class="role-period">(Mar 2026)</span>
+        </div>
+      </div>
+      <div class="role-section">
+        <ul class="course-list">
+          <li class="course-list-item">
             <span class="course-code">EECE 2323</span>
             <span class="course-name">Fundamentals of Digital Design and Computer Organization</span>
             <span class="course-semesters">(Fall 2020)</span>
@@ -548,7 +585,7 @@
         <p class="role-description">Led recitation lectures and designed/conducted laboratory experiments for a class of approximately 40 undergraduate students.</p>
         <div class="role-meta">
           <span class="role-title">Teaching Assistant</span>, 
-          <span class="role-institution">Northeastern University</span>, 
+          <span class="role-department">Department of Electrical and Computer Engineering</span>, <span class="role-institution">Northeastern University</span>, 
           <span class="role-location">Boston, MA</span>
           <span class="role-period">(Sep 2020 – Dec 2020)</span>
         </div>
@@ -564,7 +601,7 @@
         <p class="role-description">Supervised cleanroom laboratories on full CMOS-compatible semiconductor device fabrication (wafer preparation through final test) for a class of approximately 10 undergraduate students.</p>
         <div class="role-meta">
           <span class="role-title">Graduate Instructional Assistant</span>, 
-          <span class="role-institution">Texas State University</span>, 
+          <span class="role-department">Ingram School of Engineering</span>, <span class="role-institution">Texas State University</span>, 
           <span class="role-location">San Marcos, TX</span>
           <span class="role-period">(Aug 2017 – Dec 2017)</span>
         </div>
@@ -630,30 +667,49 @@
       <!-- Mentoring Section -->
       <section class="mentoring-section">
         <h2 class="section-heading">Mentoring</h2>
+        <p class="mentoring-description">Mentored 7 students across B.S., M.S., and Ph.D. degree programs in Bioengineering, Bioinformatics, and Electrical Engineering.</p>
         <div class="mentoring-category">
-          <h4 class="category-heading">Graduate Students</h4>
+          <h4 class="category-heading">PhD Students</h4>
           <div class="student-item">
-            <div class="student-name">Durga Gomathi Arumuganainar</div>
-            <div class="student-program">MS Department of Bioinformatics (2025)</div>
-            <div class="student-institution">NEU, 2026</div>
-          </div>
-          <div class="student-item">
-            <div class="student-name">Wendao Li</div>
-            <div class="student-program">BS+MS Department of Bioengineering (2024)</div>
-            <div class="student-institution">NEU, 2026</div>
-          </div>
-          <div class="student-item">
-            <div class="student-name">Fairuz Samiha Saeed</div>
-            <div class="student-program">MS Department of Electrical Engineering (2020–2021)</div>
-            <div class="student-institution">TXSTATE, 2021</div>
+            <div class="student-name">Tom Pu</div>
+            <div class="student-program">PhD candidate, Department of Bioengineering (2026)</div>
+            <div class="student-institution">Northeastern University, Boston, MA</div>
           </div>
         </div>
         <div class="mentoring-category">
-          <h4 class="category-heading">Undergraduate Students</h4>
+          <h4 class="category-heading">MS Students</h4>
+          <div class="student-item">
+            <div class="student-name">Ganesan Murugan</div>
+            <div class="student-program">MS, Department of Bioinformatics (2026)</div>
+            <div class="student-institution">Northeastern University, Boston, MA</div>
+          </div>
+          <div class="student-item">
+            <div class="student-name">Durga Gomathi Arumuganainar</div>
+            <div class="student-program">MS, Department of Bioinformatics (2025-2026)</div>
+            <div class="student-institution">Northeastern University, Boston, MA</div>
+          </div>
+          <div class="student-item">
+            <div class="student-name">Wendao Li</div>
+            <div class="student-program">BS+MS, Department of Bioengineering (2024)</div>
+            <div class="student-institution">Northeastern University, Boston, MA</div>
+          </div>
+          <div class="student-item">
+            <div class="student-name">Fairuz Samiha Saeed</div>
+            <div class="student-program">MS, Department of Electrical Engineering (2020–2021)</div>
+            <div class="student-institution">Texas State University, San Marcos, TX</div>
+          </div>
+        </div>
+        <div class="mentoring-category">
+          <h4 class="category-heading">BS Students</h4>
+          <div class="student-item">
+            <div class="student-name">Helena Zheng</div>
+            <div class="student-program">BS in Bioengineering and Biochemistry (2026)</div>
+            <div class="student-institution">Northeastern University, Boston, MA</div>
+          </div>
           <div class="student-item">
             <div class="student-name">Devyn Stringfellow</div>
-            <div class="student-program">BS in Behavioral Neuroscience and Bioengineering (2023)</div>
-            <div class="student-institution">NEU, 2026</div>
+            <div class="student-program">BS in Bioengineering and Biochemistry (2023)</div>
+            <div class="student-institution">Northeastern University, Boston, MA</div>
           </div>
         </div>
       </section>
